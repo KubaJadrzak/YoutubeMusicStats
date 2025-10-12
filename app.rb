@@ -4,6 +4,7 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'csv'
 require 'tempfile'
+require 'cgi'
 
 set :bind, '0.0.0.0'
 set :port, 4567
@@ -28,8 +29,8 @@ post '/upload' do
       <a\ href="https://music\.youtube\.com/watch\?v=[^"]+">([^<]+)</a><br>\s*
       <a\ href="https://www\.youtube\.com/channel/[^"]+">([^<]+)\ -\ Topic</a><br>
     }x) do |song, artist|
-      artist_name = artist.sub(/ - Topic$/, '').strip.encode('UTF-8', invalid: :replace, undef: :replace, replace: '?')
-      song_name = song.strip.encode('UTF-8', invalid: :replace, undef: :replace, replace: '?')
+      artist_name = CGI.unescapeHTML(artist).sub(/ - Topic$/, '').strip
+      song_name = CGI.unescapeHTML(song).strip
       artist_counts[artist_name] += 1
       song_counts[song_name] += 1
     end
