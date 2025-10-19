@@ -1,25 +1,25 @@
 <div class="container">
-  <h1>Upload YouTube Music History</h1>
-
+  <h1>Upload Youtube Music History</h1>
   <div class="instructions">
     <strong>How to get your YouTube Music history:</strong>
     <ol>
       <li>Go to <a href="https://takeout.google.com/" target="_blank">Google Takeout</a>.</li>
-      <li>Select only “YouTube and YouTube Music”.</li>
-      <li>Create export → download ZIP → extract → find
-        <strong>watch-history.html</strong>.</li>
-      <li>Upload it here:</li>
+      <li>Click <strong>“Deselect all”</strong>, then scroll and check only <strong>YouTube and YouTube Music</strong>.</li>
+      <li>Click <strong>“Next step”</strong> and then <strong>“Create export”</strong>.</li>
+      <li>When it’s ready, download the ZIP file from Google Takeout.</li>
+      <li>Extract the ZIP</li>
+      <li>Open the folder <strong>Takeout => YouTube and Youtube Music => history => watch-history.html</strong>.</li>
+      <li>Upload <strong>watch-history.html</strong> file here.</li>
     </ol>
   </div>
-
   <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
     <input type="file" name="file" id="fileInput" accept=".html" required>
     <button type="button" id="uploadBtn">Upload</button>
   </form>
-
   <div class="disclaimer">
-    ⚠️ <strong>Privacy Notice:</strong> This app does <strong>not</strong> store any of your uploaded data.<br>
-    Source code: 
+    ⚠️ <strong>Privacy Notice:</strong> This app does <strong>NOT</strong> store any of your uploaded data.<br>
+  <br>
+    Full source code is available at: 
     <a href="https://github.com/KubaJadrzak/YoutubeMusicStats" target="_blank">
       github.com/KubaJadrzak/YoutubeMusicStats
     </a>
