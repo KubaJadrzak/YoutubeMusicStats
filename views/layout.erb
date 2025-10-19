@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title><%= @title || "YouTube Music Stats" %></title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/global.css">
+    <% if @css_file %>
+      <link rel="stylesheet" href="/css/<%= @css_file %>.css">
+    <% end %>
+  </head>
+  <body>
+    <%= yield %>
+    <% if @js_file %>
+      <script src="/js/<%= @js_file %>.js"></script>
+    <% end %>
+  </body>
+</html>

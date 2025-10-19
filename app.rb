@@ -10,6 +10,8 @@ set :bind, '0.0.0.0'
 set :port, 4567
 
 get '/' do
+  @css_file = 'index'
+  @js_file = 'index'
   erb :index
 end
 
@@ -39,5 +41,7 @@ post '/upload' do
   end
   @sorted_artists = artist_counts.sort_by { |_artist, count| -count }
   @sorted_songs = song_counts.sort_by { |_song, count| -count }
+  @css_file = 'results'
+  @js_file = 'results'
   erb :results
 end

@@ -1,106 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <title>YT Stats Uploader</title>
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        font-family: 'Roboto', sans-serif;
-      }
+<div class="container">
+  <h1>Upload YouTube Music History</h1>
 
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background: #212121;
-        padding: 20px;
-      }
+  <div class="instructions">
+    <strong>How to get your YouTube Music history:</strong>
+    <ol>
+      <li>Go to <a href="https://takeout.google.com/" target="_blank">Google Takeout</a>.</li>
+      <li>Select only “YouTube and YouTube Music”.</li>
+      <li>Create export → download ZIP → extract → find
+        <strong>watch-history.html</strong>.</li>
+      <li>Upload it here:</li>
+    </ol>
+  </div>
 
-      .container {
-        background: #fff;
-        padding: 40px;
-        text-align: center;
-        width: 100%;
-        max-width: 450px;
-        border-radius: 10px;
-      }
+  <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" id="fileInput" accept=".html" required>
+    <button type="button" id="uploadBtn">Upload</button>
+  </form>
 
-      h1 {
-        font-weight: 600;
-        margin-bottom: 20px;
-        color: #333;
-        font-size: 1.6rem;
-      }
-
-      .instructions {
-        text-align: left;
-        font-size: 0.9rem;
-        color: #444;
-        background: #f7f7f7;
-        padding: 15px;
-        border-radius: 6px;
-        margin-bottom: 25px;
-        line-height: 1.5;
-      }
-
-      .instructions ol {
-        margin-left: 18px;
-      }
-
-      input[type="file"] {
-        display: none;
-      }
-
-      button {
-        padding: 12px 25px;
-        border: none;
-        background-color: #CD201F;
-        color: white;
-        font-size: 1rem;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background 0.3s ease;
-      }
-
-      button:hover {
-        background-color: #a51a19;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Upload Youtube Music History</h1>
-      <div class="instructions">
-        <strong>How to get your YouTube Music history:</strong>
-        <ol>
-          <li>Go to <a href="https://takeout.google.com/" target="_blank">Google Takeout</a>.</li>
-          <li>Click <strong>“Deselect all”</strong>, then scroll and check only <strong>YouTube and YouTube Music</strong>.</li>
-          <li>Click <strong>“Next step”</strong> and then <strong>“Create export”</strong>.</li>
-          <li>When it’s ready, download the ZIP file from Google Takeout.</li>
-          <li>Extract the ZIP</li>
-          <li>Open the folder <strong>Takeout => YouTube and Youtube Music => history => watch-history.html</strong>.</li>
-          <li>Upload <strong>watch-history.html</strong> file here.</li>
-        </ol>
-      </div>
-      <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" id="fileInput" accept=".html" required>
-        <button type="button" id="uploadBtn">Upload</button>
-      </form>
-    </div>
-    <script>
-      const fileInput = document.getElementById('fileInput');
-      const uploadBtn = document.getElementById('uploadBtn');
-      const form = document.getElementById('uploadForm');
-
-      uploadBtn.addEventListener('click', () => fileInput.click());
-      fileInput.addEventListener('change', () => {
-        if (fileInput.files.length > 0) form.submit();
-      });
-    </script>
-  </body>
-</html>
+  <div class="disclaimer">
+    ⚠️ <strong>Privacy Notice:</strong> This app does <strong>not</strong> store any of your uploaded data.<br>
+    Source code: 
+    <a href="https://github.com/KubaJadrzak/YoutubeMusicStats" target="_blank">
+      github.com/KubaJadrzak/YoutubeMusicStats
+    </a>
+  </div>
+</div>
