@@ -8,6 +8,8 @@ require 'cgi'
 
 set :bind, '0.0.0.0'
 set :port, 4567
+set :host, '0.0.0.0'
+set :allowed_hosts, ['ytmusicstats.kubajadrzak.com', 'localhost']
 
 get '/' do
   @css_file = 'index'
