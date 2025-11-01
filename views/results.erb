@@ -3,28 +3,45 @@
   <button class="toggle-btn" id="toggleBtn">Show Songs</button>
   <br>
   <input type="text" id="searchInput" class="search-bar" placeholder="Search...">
-
   <div class="table-container" id="artistTable">
     <table>
-      <thead><tr><th>Artist</th><th>Count</th></tr></thead>
+      <colgroup>
+        <col style="width: 70%">
+        <col style="width: 30%">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Artist</th>
+          <th>Count</th>
+        </tr>
+      </thead>
       <tbody>
         <% @sorted_artists.each do |artist, count| %>
-          <tr><td title="<%= artist %>"><%= artist %></td><td><%= count %></td></tr>
+          <tr>
+            <td title="<%= artist %>"><%= artist %></td>
+            <td><%= count %></td>
+          </tr>
         <% end %>
       </tbody>
     </table>
   </div>
-
   <div class="table-container" id="songTable" style="display:none;">
     <table>
-      <thead><tr><th>Song</th><th>Count</th></tr></thead>
+      <thead>
+        <tr>
+          <th>Song</th>
+          <th>Count</th>
+        </tr>
+      </thead>
       <tbody>
         <% @sorted_songs.each do |song, count| %>
-          <tr><td title="<%= song %>"><%= song %></td><td><%= count %></td></tr>
+          <tr>
+            <td title="<%= song %>"><%= song %></td>
+            <td><%= count %></td>
+          </tr>
         <% end %>
       </tbody>
     </table>
   </div>
-
   <a href="/" class="back-link">Upload another file</a>
 </div>
